@@ -31,10 +31,10 @@ Vagrant.configure(2) do |config|
         sudo sh -c 'echo "export ANSIBLE_INVENTORY=~/ansible_hosts" >> /etc/profile'
         sudo pip3 install ansible
 
-        # Clone and start the app
-        sudo git clone https://github.com/guisesterheim/devops/
-        # Add command to download repo here
+        # Clone repo and start the app
+        sudo git clone https://github.com/guisesterheim/ansibleExposingGoMicroservice/
         # Add command to run playbook here
+        sudo ansible-playbook ansibleExposingGoMicroservice/site.yml
         # Add command to run tests
     SHELL
 end

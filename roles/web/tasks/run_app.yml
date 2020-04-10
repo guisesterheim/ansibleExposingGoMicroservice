@@ -1,4 +1,4 @@
 ---
 - name: Run App
   become: yes  
-  shell: sudo docker-compose -f {{ destination }}/docker-compose.yml up -d
+  shell: docker-compose -f {{ destination }}/docker-compose.yml up -d

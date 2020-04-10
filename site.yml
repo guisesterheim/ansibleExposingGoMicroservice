@@ -7,14 +7,8 @@
   roles:
     - common
 
-- name: configure and deploy the webservers and application code
+- name: configure, deploy and run the go microservice
   become: true
   hosts: localhost
   roles:
     - web
-
-#- name: deploy MySQL and configure the databases
-#  become: yes
-#  hosts: all #dbservers
-#  roles:
-#    - db
