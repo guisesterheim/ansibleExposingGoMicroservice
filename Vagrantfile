@@ -27,15 +27,15 @@ Vagrant.configure(2) do |config|
         sudo apt-get -y install python-jinja2 python-paramiko
         sudo sh -c 'touch /home/vagrant/ansible_hosts'
         sudo sh -c 'echo "[localhost]" > /home/vagrant/ansible_hosts'
-        sudo sh -c 'echo "localhost ansible_connection=local" >> /home/vagrant/ansible_hosts'
+        sudo sh -c 'echo "127.0.0.1 ansible_connection=local" >> /home/vagrant/ansible_hosts'
         sudo sh -c 'echo "export ANSIBLE_INVENTORY=~/ansible_hosts" >> /etc/profile'
         sudo pip3 install ansible
 
         # Clone repo and start the app
         sudo git clone https://github.com/guisesterheim/ansibleExposingGoMicroservice/
-        # Add command to run playbook here
+        # Run playbook
         sudo ansible-playbook ansibleExposingGoMicroservice/site.yml
-        # Add command to run tests
+        # Check if the service is up, running and responding
         sudo bash ansibleExposingGoMicroservice/general-test.sh
     SHELL
 end
