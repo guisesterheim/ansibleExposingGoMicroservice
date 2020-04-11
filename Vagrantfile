@@ -36,6 +36,6 @@ Vagrant.configure(2) do |config|
         # Add command to run playbook here
         sudo ansible-playbook ansibleExposingGoMicroservice/site.yml
         # Add command to run tests
-        
+        sudo bash ansibleExposingGoMicroservice/general-test.sh
     SHELL
 end

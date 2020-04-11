@@ -1,10 +1,7 @@
-checkStatus=$(curl http://55.55.55.150:8080/calc/history)
-failureStatus='Failed to connect'
+checkStatus=$(curl http://localhost:8080/calc/history)
+checkStatus2=$(sudo docker ps | grep -c goApp)
 
-echo $checkStatus
-echo $failureStatus
-
-if [[ "$checkStatus" == *"$failureStatus"* ]]; then
+if [[ -z "$checkStatus" || $checkStatus2 -eq 0 ]]; then
     echo "Service is unavailable!"
 else
     echo "Service is up and running!"
