@@ -11,7 +11,7 @@ Vagrant.configure(2) do |config|
 
     config.vm.box = "ubuntu/xenial64"
     config.vm.network "private_network", ip: "55.55.55.150"
-    config.vm.synced_folder ".", "/home/vagrant/shared"
+    config.vm.synced_folder ".", "/home/vagrant/ansibleExposingGoMicroservice"
     config.vm.provision "shell", inline: <<-SHELL
 
         sudo apt-get update -y
@@ -31,10 +31,8 @@ Vagrant.configure(2) do |config|
         sudo sh -c 'echo "export ANSIBLE_INVENTORY=~/ansible_hosts" >> /etc/profile'
         sudo pip3 install ansible
 
-        # Clone repo and start the app
-        sudo git clone https://github.com/guisesterheim/ansibleExposingGoMicroservice/
         # Run playbook
-        sudo ansible-playbook ansibleExposingGoMicroservice/site.yml
+        sudo ansible-playbook /home/vagrant/ansibleExposingGoMicroservice/site.yml
         # Check if the service is up, running and responding
         sudo bash ansibleExposingGoMicroservice/general-test.sh
     SHELL
