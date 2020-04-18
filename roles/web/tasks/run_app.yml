@@ -1,5 +1,4 @@
 ---
 - name: Run App
   become: yes  
-  docker_compose:
-    project_src: "{{ destination }}/docker-compose.yml"
+  shell: docker-compose -f {{ destination }}/docker-compose.yml up -d
