@@ -2,4 +2,4 @@
 - name: Run App
   become: yes  
   docker_compose:
-    project_src: {{ destination }}/docker-compose.yml
+    project_src: "{{ destination }}/docker-compose.yml"
